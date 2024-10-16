@@ -2,7 +2,9 @@ import Image from "next/image";
 
 export default async function Home() {
 
-  const res = await fetch('https://my-next-app-avu.pages.dev/api'); // Fetch from your API route
+  const url = 'http://localhost:3000' || `https://my-next-app-avu.pages.dev/`
+
+  const res = await fetch(`${url}/api`); // Fetch from your API route
   const data = await res.json();
 
   const newdata = data.filter(obj => obj.Tier === 150)
@@ -38,8 +40,8 @@ export default async function Home() {
       </a>
 
       <ul>
-        {newdata.map((post, indext) => (
-          <li key={indext}>{post.Player}</li>
+        {newdata.map((post, index) => (
+          <li key={index}>{post.Player}</li>
         ))}
       </ul>
 
