@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch('https://my-next-app-avu.pages.dev/api'); // Fetch from your API route
+  const data = await res.json();
+
+  const newdata = data.filter(obj => obj.Tier === 150)
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -26,6 +32,16 @@ export default function Home() {
           </a>
         </div>
       </div>
+
+      <a href="/api">
+        To API
+      </a>
+
+      <ul>
+        {newdata.map((post, indext) => (
+          <li key={indext}>{post.Player}</li>
+        ))}
+      </ul>
 
       <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
         <Image
