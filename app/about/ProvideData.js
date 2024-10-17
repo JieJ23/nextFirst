@@ -1,7 +1,7 @@
-import ProcessData from "./processDate";
+import ProcessData from "./ProcessDate";
 
 async function fetchData() {
-    const res = await fetch('https://script.google.com/macros/s/AKfycbzzlL52v_BgUWkxo_paVwl0HDBDdOgwVZGxiC31Qdpb7q1tXvOZaI8X8PVmbjESj_Xh/exec');
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzzlL52v_BgUWkxo_paVwl0HDBDdOgwVZGxiC31Qdpb7q1tXvOZaI8X8PVmbjESj_Xh/exec', { cache: 'reload' });
     return res.json();
 }
 
