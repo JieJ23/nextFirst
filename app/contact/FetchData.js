@@ -5,7 +5,7 @@ export default async function FetchData() {
     const clientId = `t3w0m1q061u3qvb0m4tidq05pxosfp`;
     const accessToken = `wjf8hiqlncou3zvjkeit9vizehbpdu`;
 
-    const usernames = [`piratesoftware`, `wudijo`, `rob2628`, `freyja`, `luckyluciano`, `mekuna7`,]
+    const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`]
 
     let userString = ``;
 
@@ -48,9 +48,11 @@ export default async function FetchData() {
             login: user.login,
             displayName: user.display_name,
             streamimg: user.profile_image_url,
+            streamDes: user.description,
             isLive: !!streamInfo, // true if the user is live, false otherwise
             streamTitle: streamInfo ? streamInfo.title : null, // Get the stream title if live
             viewerCount: streamInfo ? streamInfo.viewer_count : null, // Get viewer count if live
+            tags: streamInfo ? streamInfo.tags : null
         };
     })
 
