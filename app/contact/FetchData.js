@@ -5,7 +5,7 @@ export default async function FetchData() {
     const clientId = `t3w0m1q061u3qvb0m4tidq05pxosfp`;
     const accessToken = `wjf8hiqlncou3zvjkeit9vizehbpdu`;
 
-    const usernames = [`piratesoftware`, `wudijo`, `rob2628`, `freyja`, `luckyluciano`, `mekuna7`]
+    const usernames = [`piratesoftware`, `wudijo`, `rob2628`, `freyja`, `luckyluciano`, `mekuna7`,]
 
     let userString = ``;
 
