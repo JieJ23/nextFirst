@@ -39,7 +39,7 @@ export default function ProcessData({ data }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {topPlayer.map((obj, index) => {
+                            {topPlayer.slice(0, 5).map((obj, index) => {
                                 return (
                                     <tr key={index}>
                                         <td className="p-4">
