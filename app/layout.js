@@ -10,8 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/favicon.png" />
 
-      <body className="bg-gradient-to-bl from-[#161827] to-[#131212] bg-center bg-fixed min-h-lvh"
-        style={{ backgroundImage: "url('/mainBG.png')" }}
+      <body className="bg-gradient-to-bl from-[#1b1a1a] to-[#151515] bg-center bg-fixed min-h-lvh"
       >
         {children}
       </body>
