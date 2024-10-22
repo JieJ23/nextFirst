@@ -1,6 +1,7 @@
 "use client";
 import { Avatar, Card, Chip } from "@material-tailwind/react";
 import Link from "next/link";
+import Timer from "./Timer";
 
 
 export default function DisplayData({ dataAll, getUser, getStream }) {
@@ -8,16 +9,21 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
     const displayData = dataAll.slice()
     const onlineDisplay = displayData.filter(obj => obj.isLive)
 
+    console.log(getStream.data[0])
+    console.log(getUser.data[0])
+
     const sorcerer = [`mekuna7`, `lurkin17ttv`, `r0xy`]
     const necromancer = [`macrobioboi`, `scriblet`, `serocifkre`, `lordxsaura`]
-    const rogue = [`craftyxii`, `sanctumd4`, `aceofspadeshots`, `sagittarian_tv`]
-    const barbarian = [`ulfhednar`, `aoinomiku`]
+    const rogue = [`craftyxii`, `sanctumd4`, `aceofspadeshots`, `sagittarian_tv`, `m1py`]
+    const barbarian = [`ulfhednar`, `aoinomiku`, `dalkora`]
     const druid = [`j_macc`]
 
     const classSpecialist = [...sorcerer, ...necromancer, ...rogue, ...barbarian, ...druid]
 
     return (
         <main className="mx-auto my-5">
+            <section className="text-white text-[18px] font-serif text-center mt-10">Online {onlineDisplay.length} / {displayData.length}</section>
+
             <section className="flex flex-wrap justify-center gap-2">
                 {onlineDisplay.map((streamer, index) => (
                     <Link href={`https://www.twitch.tv/${streamer.displayName}`} target="_blank" key={index}>
@@ -103,17 +109,23 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
                                     <Chip color="indigo" key={index} value={item} size="sm" className="text-[9px] font-sans" />
                                 ))}
                             </div>}
-                            <div className="flex gap-1 items-center justify-end">{streamer.isLive ?
-                                (
-                                    <>
-                                        <div className="text-[12px]">Streaming</div>
-                                        <div className="relative flex h-2 w-2">
-                                            <span className="relative inline-block rounded-full h-2 w-2 bg-red-500" />
-                                            <span className="animate-ping absolute inline-block h-full w-full rounded-full bg-red-400 opacity-75" />
-                                        </div>
-                                    </>
-                                ) : <div className="text-[14px]">Offline</div>}
+                            <div className="flex gap-1 items-center justify-between">
+                                <div className="text-white text-[12px]">{streamer.gameName}</div>
+                                <Timer data={streamer.streamTime} />
+                                <div className="flex items-center gap-1">
+                                    {streamer.isLive ?
+                                        (
+                                            <>
+                                                <div className="text-[12px]">Streaming</div>
+                                                <div className="relative flex h-2 w-2">
+                                                    <span className="relative inline-block rounded-full h-2 w-2 bg-red-500" />
+                                                    <span className="animate-ping absolute inline-block h-full w-full rounded-full bg-red-400 opacity-75" />
+                                                </div>
+                                            </>
+                                        ) : <div className="text-[14px]">Offline</div>}
+                                </div>
                             </div>
+
                         </Card>
                     </Link>
                 ))}

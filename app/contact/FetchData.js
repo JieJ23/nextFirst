@@ -7,7 +7,7 @@ export default async function FetchData() {
     const clientId = `t3w0m1q061u3qvb0m4tidq05pxosfp`;
     const accessToken = `wjf8hiqlncou3zvjkeit9vizehbpdu`;
 
-    const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`]
+    const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
 
     let userString = ``;
 
@@ -52,6 +52,8 @@ export default async function FetchData() {
             streamimg: user.profile_image_url,
             streamDes: user.description,
             isLive: !!streamInfo, // true if the user is live, false otherwise
+            gameName: streamInfo ? streamInfo.game_name : null,
+            streamTime: streamInfo ? streamInfo.started_at : null,
             streamTitle: streamInfo ? streamInfo.title : null, // Get the stream title if live
             viewerCount: streamInfo ? streamInfo.viewer_count : null, // Get viewer count if live
             tags: streamInfo ? streamInfo.tags : null

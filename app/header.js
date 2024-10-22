@@ -3,6 +3,7 @@
 import {
     Navbar,
     Typography,
+    Avatar
 } from "@material-tailwind/react";
 
 import Link from "next/link";
@@ -24,13 +25,9 @@ function NavList() {
 
 export function Header() {
     return (
-        <Navbar className="mx-auto w-[90%] max-w-[600px] border-none px-6 py-1 sticky top-5 bg-[#2852ea32] backdrop-blur-md z-30">
+        <Navbar className="mx-auto w-[90%] max-w-[600px] border-none px-6 py-1 sticky top-5 bg-[#3978665b] backdrop-blur-md z-30">
             <div className="flex items-center justify-between">
-                <Typography
-                    className="mr-4 cursor-pointer py-1.5 font-serif  text-white"
-                >
-                    CYD4
-                </Typography>
+                <Avatar src="favicon.png" size="sm" />
                 <div>
                     <NavList />
                 </div>
