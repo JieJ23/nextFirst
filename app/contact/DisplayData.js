@@ -9,9 +9,6 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
     const displayData = dataAll.slice()
     const onlineDisplay = displayData.filter(obj => obj.isLive)
 
-    console.log(getStream.data[0])
-    console.log(getUser.data[0])
-
     const sorcerer = [`mekuna7`, `lurkin17ttv`, `r0xy`]
     const necromancer = [`macrobioboi`, `scriblet`, `serocifkre`, `lordxsaura`]
     const rogue = [`craftyxii`, `sanctumd4`, `aceofspadeshots`, `sagittarian_tv`, `m1py`]

@@ -1,95 +1,29 @@
 "use client";
-import { Card, Typography, Button } from "@material-tailwind/react";
 import Link from "next/link";
-
-const TABLE_HEAD = [
-    "Rank",
-    "Player",
-    "Tier",
-    "Build",
-    "Payment Date",
-];
-
-
+import { Card, Avatar } from "@material-tailwind/react";
 export default function ProcessData({ data }) {
 
-    const topPlayer = data.filter(obj => obj.Tier === 150)
+    const sortByData = data.sort((a, b) => (new Date(b.uploadDate)) - (new Date(a.uploadDate)))
+
     return (
-        <div className="text-white">
-            <div className="text-center my-10">
-                <Link href="/">
-                    <Button>Home</Button>
+        <section className="text-white grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-[1400px] justify-center mt-10 px-2 mx-auto">
+            {sortByData.map((obj, index) => (
+                <Link href={`https://www.youtube.com/watch?v=${obj.url}`} target="_blank" key={index}>
+                    <Card className="flex flex-col bg-black h-full text-white shadow-[inset_0_0_5px_gray]" shadow={false}>
+                        <section className="p-1">
+                            <img src={obj.thumbnail} className="rounded-lg" />
+                        </section>
+                        <section className="flex flex-col h-full justify-between items-center text-center p-3 gap-2">
+                            <div className="text-[12px] sm:text-[13px] text-center w-full text-gray-200 font-[Roberto]">{obj.title}</div>
+                            <div className="flex justify-start w-full gap-2">
+                                <Avatar src={obj.profileImg} size="xs" variant="rounded" />
+                                <div className="text-[12px] text-[#fff]">{obj.publisher}</div>
+                                <div className="text-[12px] text-gray-400">{obj.uploadDate.slice(0, 10)}</div>
+                            </div>
+                        </section>
+                    </Card>
                 </Link>
-            </div>
-            <div className="px-2 mt-5 mb-16">
-                <Card className="h-full w-full max-w-[1400px] mx-auto backdrop-blur-md bg-black/50 border border-white/20 overflow-auto" shadow={false}>
-                    <table className="w-full min-w-max table-auto text-left">
-                        <thead>
-                            <tr>
-                                {TABLE_HEAD.map((head, index) => (
-                                    <th key={index} className="p-4 pt-10">
-                                        <Typography
-                                            variant="small"
-                                            className="font-bold leading-none text-gray-300"
-                                        >
-                                            {head}
-                                        </Typography>
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {topPlayer.slice(0, 5).map((obj, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td className="p-4">
-                                            <Typography
-                                                variant="small"
-                                                color="white"
-                                                className="font-bold"
-                                            >
-                                                {index + 1}
-                                            </Typography>
-                                        </td>
-                                        <td className="p-4">
-                                            <Typography
-                                                variant="small"
-                                                className="font-normal text-white"
-                                            >
-                                                {obj.Player}
-                                            </Typography>
-                                        </td>
-                                        <td className="p-4">
-                                            <Typography
-                                                variant="small"
-                                                className="font-normal text-white"
-                                            >
-                                                {obj.Tier}
-                                            </Typography>
-                                        </td>
-                                        <td className="p-4">
-                                            <Typography
-                                                variant="small"
-                                                className="font-normal text-white"
-                                            >
-                                                {obj["Build Name"]}
-                                            </Typography>
-                                        </td>
-                                        <td className="p-4">
-                                            <Typography
-                                                variant="small"
-                                                className="font-normal text-white"
-                                            >
-                                                {obj["Time Used"]}
-                                            </Typography>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </Card>
-            </div>
-        </div>
+            ))}
+        </section>
     );
 }
