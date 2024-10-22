@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function Cards() {
     return (
-        <main className="flex flex-col lg:flex-row gap-4">
+        <main className="flex flex-col lg:flex-row gap-4 mt-5">
             <Link href="/about" className="inline-block group">
                 <Card className="mt-6 w-96 bg-gradient-to-tl to-[#ea8e6a] from-[#eac407]">
                     <CardBody>

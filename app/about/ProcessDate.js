@@ -13,12 +13,12 @@ export default function ProcessData({ data }) {
                         <section className="p-1">
                             <img src={obj.thumbnail} className="rounded-lg" />
                         </section>
-                        <section className="flex flex-col h-full justify-between items-center text-center p-3 gap-2">
-                            <div className="text-[12px] sm:text-[13px] text-center w-full text-gray-200 font-[Roberto]">{obj.title}</div>
-                            <div className="flex justify-start w-full gap-2">
+                        <section className="flex flex-col h-full justify-between items-center text-center p-3">
+                            <div className="text-[12px] sm:text-[13px] text-center w-full text-gray-200 font-[Roberto] my-2">{obj.title}</div>
+                            <div className="text-[12px] text-gray-400 text-end w-full font-serif">{obj.uploadDate.slice(0, 10)}</div>
+                            <div className="flex justify-between items-center w-full">
                                 <Avatar src={obj.profileImg} size="xs" variant="rounded" />
                                 <div className="text-[12px] text-[#fff]">{obj.publisher}</div>
-                                <div className="text-[12px] text-gray-400">{obj.uploadDate.slice(0, 10)}</div>
                             </div>
                         </section>
                     </Card>
