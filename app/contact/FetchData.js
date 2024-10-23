@@ -9,7 +9,7 @@ export default async function FetchData() {
 
     // const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
 
-    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`, `elkjop_gaming`, `29groove`, `viktorysa`, `lefttofray`]
+    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`, `elkjop_gaming`, `29groove`, `viktorysa`, `lefttofray`, `renaliaomi`, `andrealausell`, `iceeyco`]
 
     let userString = ``;
 
@@ -26,11 +26,9 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            },
-            next: { revalidate: 60 }
+            }
         }
     );
-    res.headers.set('Cache-Control', 'public, max-age=60');
 
     const data = await res.json();
     const userIds = data.data.map(user => user.id).join('&user_id='); // Prepare the user IDs for the stream check
@@ -41,8 +39,7 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            },
-            next: { revalidate: 60 }
+            }
         }
     );
 
