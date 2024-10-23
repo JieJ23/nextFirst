@@ -7,7 +7,9 @@ export default async function FetchData() {
     const clientId = `t3w0m1q061u3qvb0m4tidq05pxosfp`;
     const accessToken = `wjf8hiqlncou3zvjkeit9vizehbpdu`;
 
-    const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
+    // const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
+
+    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`]
 
     let userString = ``;
 

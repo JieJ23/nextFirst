@@ -6,7 +6,7 @@ const YOUR_API_KEY = process.env.YT_KEY;
 
 export default async function ProvideData() {
     const creatorObject = [];
-    const channelString = [`UCSl8TBqqflby-ymdEQVfRNQ`, `UC78d2aaqdrt02RfmtRLmlAw`, `UCs20qCPrd1AXRviSTdVCoAg`, `UCosDEIpmumbwyVM_ob4u1PQ`, `UCk4BwgEF2Ar_X06HXtluHlQ`, `UC4mfZF-Y3tIRP98eOtLuveg`, `UCpfC05a6_OvIry-St-clmXw`, `UCYRJN1hoKPJ0GuQy7m5tWSw`, `UC1l5kaWLrQwdPVBaAfVoEbQ`]
+    const channelString = [`UCSnGGntxMnAM6oDHML2qzaw`, `UCv-N1CZR3EaJdRS2rGCiYjQ`, `UCeIfiz4VGkf8xTBAeH0xcFw`, `UC0J_47RRQSxgyALsli8USNA`, `UCPDaMS5mMCJXfKmvo4r68oA`, `UC7NS_0nSUO9c9bp9XLnq57w`, `UC7XvfoN5vtY5pRWltFU69fA`, `UCBh7i2-7P2oInbVLOV5q_bQ`, `UCBq8CLRcJN8rgqHOkyL1ozg`]
 
     const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelString.join(",")}&key=${YOUR_API_KEY}`, { next: { revalidate: 120 } });
 
@@ -36,11 +36,12 @@ export default async function ProvideData() {
             const video = videosData.items[i].snippet;
             const channelId = videosData.items[i].snippet.channelId; // Get the channelId of the video
             // Create an object for each video
+            console.log(video)
             const videoObject = {
                 videoId: video.resourceId.videoId, // video ID
                 title: video.title,                  // video title
                 uploadDate: video.publishedAt,      // upload date
-                thumbnail: video.thumbnails.maxres.url, // thumbnail URL
+                thumbnail: video.thumbnails.high.url, // thumbnail URL
                 publisher: video.channelTitle,       // publisher/channel title
                 profileImg: profileImageMap[channelId] // Get corresponding profile image using channelId
             };

@@ -21,7 +21,7 @@ export default function Cards() {
                             YouTube Data API v3
                         </Typography>
                         <Typography className="my-2 font-sans font-normal text-black">
-                            Keep track of the latest pre-selected Diablo 4 videos, ensuring you stay updated on newly released content from chosen creators or players.
+                            Keep track of the latest pre-selected game videos, ensuring you stay updated on newly released content from chosen creators or players.
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0">
@@ -53,7 +53,7 @@ export default function Cards() {
                             Twitch API
                         </Typography>
                         <Typography className="my-2 font-sans font-normal text-gray-300">
-                            Watch and stay updated on pre-selected Diablo 4 live streams, closely following specific players or content creators as they broadcast their gameplay in real-time.
+                            Watch and stay updated on pre-selected game live streams, closely following specific players or content creators as they broadcast their gameplay in real-time.
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0">
