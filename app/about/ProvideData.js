@@ -31,12 +31,10 @@ export default async function ProvideData() {
     async function getVidData(id) {
         const videosRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=4&playlistId=${id}&key=${YOUR_API_KEY}`, { next: { revalidate: 300 } });
         const videosData = await videosRes.json();
-        console.log(videosData)
         for (let i = 0; i < videosData.items.length; i++) {
             const video = videosData.items[i].snippet;
             const channelId = videosData.items[i].snippet.channelId; // Get the channelId of the video
             // Create an object for each video
-            console.log(video)
             const videoObject = {
                 videoId: video.resourceId.videoId, // video ID
                 title: video.title,                  // video title

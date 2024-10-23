@@ -8,6 +8,8 @@ export default function ProcessData({ data }) {
 
     const allCreator = [...new Set(data.map(obj => obj.publisher))].sort()
 
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // Formats as 'YYYY-MM-DD'
 
     return (
         <>
@@ -23,14 +25,14 @@ export default function ProcessData({ data }) {
                             <section className="p-1 w-full">
                                 <img src={obj.thumbnail} className="rounded-lg" />
                             </section>
-                            <section className="flex flex-col h-full justify-between items-center text-center p-3 pt-0">
-                                <div className="flex justify-between w-full gap-1">
+                            <section className="flex flex-col h-full justify-between items-center text-center p-3 pt-0 gap-1">
+                                <div className="flex justify-between items-center w-full gap-1">
                                     <Avatar src={obj.profileImg} size="sm" variant="rounded" />
                                     <div className="text-[12px] lg:text-[13px] text-start w-full text-gray-200 font-serif mb-1">{`${obj.title}`}</div>
                                 </div>
                                 <div className="flex justify-between items-center w-full">
-                                    <div className="text-[11px] text-[#fff]">{obj.publisher}</div>
-                                    <div className="text-[11px] text-gray-400 text-end w-full font-serif">{obj.uploadDate.slice(0, 10)}</div>
+                                    <div className="text-[11px] text-[#fff] w-full text-start">{obj.publisher}</div>
+                                    <div className={`text-[11px] text-gray-400 text-end w-full font-serif ${obj.uploadDate.slice(0, 10) === formattedDate && `text-[#17f18f] animate-bounce font-[monospace] underline`} `}>{obj.uploadDate.slice(0, 10) === formattedDate ? `NEW` : obj.uploadDate.slice(0, 10)}</div>
                                 </div>
                             </section>
                         </Card>
