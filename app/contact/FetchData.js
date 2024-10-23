@@ -30,6 +30,7 @@ export default async function FetchData() {
             next: { revalidate: 60 }
         }
     );
+    res.headers.set('Cache-Control', 'public, max-age=60');
 
     const data = await res.json();
     const userIds = data.data.map(user => user.id).join('&user_id='); // Prepare the user IDs for the stream check
