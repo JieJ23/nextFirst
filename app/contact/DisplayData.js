@@ -17,10 +17,18 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
 
     const classSpecialist = [...sorcerer, ...necromancer, ...rogue, ...barbarian, ...druid]
 
+    const allCreator = [...new Set(dataAll.map(obj => obj.login))]
+
+    console.log(allCreator)
+
     return (
         <main className="mx-auto my-5">
-            <section className="text-white text-[18px] font-serif text-center mt-10">Online {onlineDisplay.length} / {displayData.length}</section>
-
+            {/* <section className="text-white text-[18px] font-serif text-center mt-10">Online {onlineDisplay.length} / {displayData.length}</section> */}
+            <section className="flex justify-center flex-wrap mt-10 max-w-[1200px] mx-auto gap-1">
+                {allCreator.map((obj, index) => (
+                    <Chip variant="gradient" value={`#${obj}`} key={index} color="indigo" className="font-sans lowercase text-black" />
+                ))}
+            </section>
             <section className="flex flex-wrap justify-center gap-2">
                 {onlineDisplay.map((streamer, index) => (
                     <Link href={`https://www.twitch.tv/${streamer.displayName}`} target="_blank" key={index}>
@@ -34,7 +42,7 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
                                     <Chip key={index} value={`Streamer`} size="sm" className="rounded-lg text-[9px] font-sans text-[#f38f8f] bg-transparent" />
                                 }
                             </div>
-                            <div className="absolute top-2 right-2">
+                            {/* <div className="absolute top-2 right-2">
                                 {classSpecialist.includes(streamer.login) ?
                                     <div className="flex justify-between">
                                         {sorcerer.includes(streamer.login) && (
@@ -88,7 +96,7 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
                                         />
                                     </div>
                                 }
-                            </div>
+                            </div> */}
                             <div className="flex flex-col justify-center items-center gap-1">
                                 <Avatar
                                     src={streamer.streamimg}
