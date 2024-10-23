@@ -8,7 +8,7 @@ export default function ProcessData({ data }) {
     return (
         <section className="text-white grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-[1400px] justify-center mt-10 px-2 mx-auto">
             {sortByData.map((obj, index) => (
-                <Link href={`https://www.youtube.com/watch?v=${obj.url}`} target="_blank" key={index}>
+                <Link href={`https://www.youtube.com/watch?v=${obj.videoId}`} target="_blank" key={index}>
                     <Card className="flex flex-col bg-black h-full text-white shadow-[inset_0_0_5px_gray]" shadow={false}>
                         <section className="p-1">
                             <img src={obj.thumbnail} className="rounded-lg" />

@@ -8,7 +8,7 @@ export default async function ProvideData() {
     const creatorObject = [];
     const channelString = [`UCSl8TBqqflby-ymdEQVfRNQ`, `UC78d2aaqdrt02RfmtRLmlAw`, `UCs20qCPrd1AXRviSTdVCoAg`, `UCosDEIpmumbwyVM_ob4u1PQ`, `UCk4BwgEF2Ar_X06HXtluHlQ`, `UC4mfZF-Y3tIRP98eOtLuveg`, `UCpfC05a6_OvIry-St-clmXw`, `UCYRJN1hoKPJ0GuQy7m5tWSw`, `UC1l5kaWLrQwdPVBaAfVoEbQ`]
 
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelString.join(",")}&key=${YOUR_API_KEY}`, { next: { revalidate: 300 } });
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelString.join(",")}&key=${YOUR_API_KEY}`, { next: { revalidate: 120 } });
 
     const fetchData = await res.json();
 
@@ -31,7 +31,7 @@ export default async function ProvideData() {
     async function getVidData(id) {
         const videosRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=4&playlistId=${id}&key=${YOUR_API_KEY}`, { next: { revalidate: 300 } });
         const videosData = await videosRes.json();
-
+        console.log(videosData)
         for (let i = 0; i < videosData.items.length; i++) {
             const video = videosData.items[i].snippet;
             const channelId = videosData.items[i].snippet.channelId; // Get the channelId of the video
@@ -51,8 +51,6 @@ export default async function ProvideData() {
     }
 
     await Promise.all(uploadsPlaylistIdArray.map(id => getVidData(id)));
-
-
     return (
         <>
             <Header />

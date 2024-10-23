@@ -25,7 +25,8 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
             },
-        }, { next: { revalidate: 60 } }
+            next: { revalidate: 60 }
+        }
     );
 
     const data = await res.json();
@@ -38,7 +39,8 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
             },
-        }, { next: { revalidate: 60 } }
+            next: { revalidate: 60 }
+        }
     );
 
     const streamData = await streamRes.json();
