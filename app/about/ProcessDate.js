@@ -32,7 +32,7 @@ export default function ProcessData({ data }) {
                                 </div>
                                 <div className="flex justify-between items-center w-full">
                                     <div className="text-[11px] text-[#fff] w-full text-start">{obj.publisher}</div>
-                                    <div className={`text-[11px] text-gray-400 text-end w-full font-serif ${obj.uploadDate.slice(0, 10) === formattedDate && `text-[#17f18f] animate-bounce font-[monospace] underline`} `}>{obj.uploadDate.slice(0, 10) === formattedDate ? `NEW` : obj.uploadDate.slice(0, 10)}</div>
+                                    <div className={`text-[11px] text-gray-400 text-end w-full font-serif ${obj.uploadDate.slice(0, 10) === formattedDate && `text-orange-400 animate-bounce font-[monospace]`} `}>{obj.uploadDate.slice(0, 10) === formattedDate ? `NEW` : obj.uploadDate.slice(0, 10)}</div>
                                 </div>
                             </section>
                         </Card>
