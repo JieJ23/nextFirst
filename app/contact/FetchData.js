@@ -9,7 +9,7 @@ export default async function FetchData() {
 
     // const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
 
-    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`]
+    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`, `elkjop_gaming`, `29groove`, `viktorysa`, `lefttofray`]
 
     let userString = ``;
 
