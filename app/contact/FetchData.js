@@ -28,7 +28,7 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
             },
-            next: { revalidate: 30 }
+            next: { revalidate: 0 }
         }
     );
 
@@ -43,7 +43,7 @@ export default async function FetchData() {
                 'Client-ID': clientId,
 
             },
-            next: { revalidate: 30 }
+            next: { revalidate: 0 }
         }
     );
 
@@ -67,7 +67,7 @@ export default async function FetchData() {
     })
 
 
-    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 30 } });
+    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 0 } });
     const testingR = await response.json();
     const results = testingR.datetime;
 
