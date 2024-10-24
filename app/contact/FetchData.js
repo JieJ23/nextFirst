@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import DisplayData from "./DisplayData";
 import { Footer } from "../footer";
 import { Header } from "../header";
@@ -68,9 +66,11 @@ export default async function FetchData() {
         };
     })
 
-    const testing = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 30 } })
-    const testingR = await testing.json()
-    const results = testingR.datetime
+
+    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 30 } });
+    const testingR = await response.json();
+    const results = testingR.datetime;
+
 
     return (
         <main>
