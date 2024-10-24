@@ -25,6 +25,7 @@ export default async function FetchData() {
         `https://api.twitch.tv/helix/users?${userString}`,
         {
             headers: {
+                'Origin': '*',
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
                 'Cache-Control': 'no-store' // Ensure the response also has no-store
@@ -39,6 +40,7 @@ export default async function FetchData() {
         `https://api.twitch.tv/helix/streams?user_id=${userIds}`,
         {
             headers: {
+                'Origin': '*',
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
                 'Cache-Control': 'no-store' // Ensure the response also has no-store
@@ -67,6 +69,7 @@ export default async function FetchData() {
 
     const testing = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, {
         headers: {
+            'Origin': '*',
             'Content-Type': 'application/json',
             'Cache-Control': 'no-store' // Ensure the response also has no-store
         },
