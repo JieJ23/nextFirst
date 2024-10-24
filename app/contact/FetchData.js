@@ -1,7 +1,7 @@
 import DisplayData from "./DisplayData";
 import { Footer } from "../footer";
 import { Header } from "../header";
-import next from "next";
+
 
 export default async function FetchData() {
 
@@ -27,6 +27,7 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
+                'Cache-Control': 'no-store' // Ensure the response also has no-store
             }
         }
     );
@@ -40,6 +41,7 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
+                'Cache-Control': 'no-store' // Ensure the response also has no-store
             }
         }
     );
@@ -63,7 +65,12 @@ export default async function FetchData() {
         };
     })
 
-    const testing = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { cache: 'no-store' })
+    const testing = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-store' // Ensure the response also has no-store
+        },
+    })
     const testingR = await testing.json()
     const results = testingR.datetime
 
