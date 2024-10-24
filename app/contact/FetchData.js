@@ -75,7 +75,6 @@ export default async function FetchData() {
     return (
         <main>
             <Header />
-            <div className="text-white">{results}</div>
             <DisplayData dataAll={combinedData} getUser={data} getStream={streamData} timenow={results} />
             <Footer />
         </main>
