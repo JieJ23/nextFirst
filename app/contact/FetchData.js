@@ -1,7 +1,9 @@
+export const runtime = "edge"
+
+
 import DisplayData from "./DisplayData";
 import { Footer } from "../footer";
 import { Header } from "../header";
-
 
 export default async function FetchData() {
 

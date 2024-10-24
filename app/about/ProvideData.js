@@ -1,3 +1,5 @@
+export const runtime = "edge"
+
 import ProcessData from "./ProcessDate";
 import { Header } from "../header";
 import { Footer } from "../footer";
