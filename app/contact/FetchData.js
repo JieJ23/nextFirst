@@ -28,7 +28,7 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
             },
-            next: { revalidate: 60 }
+            cache: 'no-store'
         }
     );
 
@@ -42,7 +42,7 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
             },
-            next: { revalidate: 60 }
+            cache: 'no-store'
         }
     );
 
