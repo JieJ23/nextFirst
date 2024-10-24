@@ -82,6 +82,3 @@ pages_build_output_dir = ".vercel/output/static"
 # [env.production.vars]
 # API_KEY = "abc123"
 
-[[kv_namespaces]]
-binding = "livegames-NEXT_CACHE_WORKERS_KV"
-id = "d49e0b602008480b87506385f9901e58"

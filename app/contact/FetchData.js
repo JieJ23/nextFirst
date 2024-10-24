@@ -27,8 +27,7 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            },
-            next: { revalidate: 0 }
+            }
         }
     );
 
@@ -42,8 +41,7 @@ export default async function FetchData() {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
 
-            },
-            next: { revalidate: 0 }
+            }
         }
     );
 
