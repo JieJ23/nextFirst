@@ -65,7 +65,7 @@ export default async function FetchData() {
     })
 
 
-    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 0 } });
+    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { cache: undefined });
     const testingR = await response.json();
     const results = testingR.datetime;
 
