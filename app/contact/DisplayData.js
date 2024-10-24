@@ -1,10 +1,23 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 import { Avatar, Card, Chip } from "@material-tailwind/react";
 import Link from "next/link";
 import Timer from "./Timer";
 
-
 export default function DisplayData({ dataAll, getUser, getStream, timenow }) {
+    const router = useRouter(); // Get the router instance
+
+    useEffect(() => {
+        // Set an interval to refresh the route every 10 seconds
+        const interval = setInterval(() => {
+            router.refresh(); // Refresh the route
+        }, 10000); // 10000 milliseconds = 10 seconds
+
+        // Clear the interval on component unmount
+        return () => clearInterval(interval);
+    }, [router]);
 
     const displayData = dataAll.slice()
     const onlineDisplay = displayData.filter(obj => obj.isLive)
