@@ -4,7 +4,7 @@ import Link from "next/link";
 import Timer from "./Timer";
 
 
-export default function DisplayData({ dataAll, getUser, getStream }) {
+export default function DisplayData({ dataAll, getUser, getStream, timenow }) {
 
     const displayData = dataAll.slice()
     const onlineDisplay = displayData.filter(obj => obj.isLive)
@@ -19,10 +19,9 @@ export default function DisplayData({ dataAll, getUser, getStream }) {
 
     const allCreator = [...new Set(dataAll.map(obj => obj.login))]
 
-    console.log(allCreator)
-
     return (
         <main className="mx-auto my-5">
+            <div className="text-white">{timenow}</div>
             {/* <section className="text-white text-[18px] font-serif text-center mt-10">Online {onlineDisplay.length} / {displayData.length}</section> */}
             <section className="flex justify-center flex-wrap mt-10 max-w-[1200px] mx-auto gap-1">
                 {allCreator.map((obj, index) => (

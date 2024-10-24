@@ -63,11 +63,14 @@ export default async function FetchData() {
         };
     })
 
+    const testing = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { next: { revalidate: 10 } })
+    const testingR = await testing.json()
+    const results = testingR.datetime
 
     return (
         <main>
             <Header />
-            <DisplayData dataAll={combinedData} getUser={data} getStream={streamData} />
+            <DisplayData dataAll={combinedData} getUser={data} getStream={streamData} timenow={results} />
             <Footer />
         </main>
     );
