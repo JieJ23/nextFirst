@@ -9,8 +9,8 @@ export default function ProcessData({ data }) {
     const allCreator = [...new Set(data.map(obj => obj.publisher))].sort()
 
     const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0]; // Formats as 'YYYY-MM-DD'
-
+    const formattedDate = today.toLocaleDateString('en-CA'); // Formats as 'YYYY-MM-DD'
+    console.log(formattedDate)
     return (
         <>
             <section className="flex justify-center flex-wrap mt-10 max-w-[1200px] mx-auto gap-1">
@@ -32,7 +32,7 @@ export default function ProcessData({ data }) {
                                 </div>
                                 <div className="flex justify-between items-center w-full">
                                     <div className="text-[11px] text-[#fff] w-full text-start">{obj.publisher}</div>
-                                    <div className={`text-[11px] text-gray-400 text-end w-full font-serif ${obj.uploadDate.slice(0, 10) === formattedDate && `text-orange-400 animate-bounce font-[monospace]`} `}>{obj.uploadDate.slice(0, 10) === formattedDate ? `NEW` : obj.uploadDate.slice(0, 10)}</div>
+                                    <div className={`text-[11px] text-gray-400 text-end w-full font-serif ${obj.uploadDate.slice(0, -10) == formattedDate && `text-orange-400 animate-bounce font-[monospace]`} `}>{obj.uploadDate.slice(0, 10) == formattedDate ? `NEW` : obj.uploadDate.slice(0, 10)}</div>
                                 </div>
                             </section>
                         </Card>

@@ -1,6 +1,7 @@
 import DisplayData from "./DisplayData";
 import { Footer } from "../footer";
 import { Header } from "../header";
+import next from "next";
 
 export default async function FetchData() {
 
@@ -9,7 +10,7 @@ export default async function FetchData() {
 
     // const usernames = [`raxxanterax`, `wudijo`, `rob2628`, `rhykker`, `luckyluciano`, `mekuna7`, `ulfhednar`, `macrobioboi`, `aceofspadeshots`, `sanctumd4`, `lurkin17ttv`, `r0xy`, `craftyxii`, `sagittarian_tv`, `scriblet`, `serocifkre`, `lordxsaura`, `aoinomiku`, `j_macc`, `operatorotter`, `northwar`, `mathil1`, `datmodz`, `p4wnyhof`, `siggismallzttv`, `vitablo`, `annacakelive`, `darthmicrotransaction`, `dieoxide`, `dalkora`, `m1py`]
 
-    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`, `elkjop_gaming`, `29groove`, `viktorysa`, `lefttofray`, `renaliaomi`, `andrealausell`, `iceeyco`]
+    const usernames = [`haelian`, `himasoraakane`, `lukeholtofficial`, `councilofgeeks`, `elmo3401`, `elkjop_gaming`, `29groove`, `viktorysa`, `lefttofray`, `renaliaomi`, `andrealausell`, `iceeyco`, `registeredfangirl`]
 
     let userString = ``;
 
@@ -26,7 +27,8 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            }
+            },
+            next: { revalidate: 60 }
         }
     );
 
@@ -39,7 +41,8 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            }
+            },
+            next: { revalidate: 60 }
         }
     );
 
