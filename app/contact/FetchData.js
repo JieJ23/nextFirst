@@ -27,7 +27,8 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-            }
+            },
+            cache: "no-store"
         }
     );
 
@@ -40,8 +41,8 @@ export default async function FetchData() {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
                 'Client-ID': clientId,
-
-            }
+            },
+            cache: "no-store"
         }
     );
 
@@ -65,7 +66,7 @@ export default async function FetchData() {
     })
 
 
-    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { cache: undefined });
+    const response = await fetch(`http://worldtimeapi.org/api/timezone/America/New_York`, { cache: "no-store" });
     const testingR = await response.json();
     const results = testingR.datetime;
 
