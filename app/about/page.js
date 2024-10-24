@@ -1,4 +1,4 @@
-const runtime = "edge"
+export const runtime = "edge"
 
 import ProvideData from "./ProvideData";
 
